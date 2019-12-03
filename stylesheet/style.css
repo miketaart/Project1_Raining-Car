@@ -1,0 +1,35 @@
+
+/*@import url("/stylesheet/_rain.css"); */
+body, html {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: #ffefd5;
+}
+
+
+.car {
+    background-image: url("/images/blue_car.png");
+    background-size: contain;
+    width: 130px;
+    height: 65px;
+    position: fixed;
+}
+
+.bolt {
+    background-image: url("/images/bolt.png");
+    background-size: contain;
+    width: 40px;
+    height: 85px;
+    position: fixed;
+}
+
+.gas {
+    background-image: url("/images/Gas-Station.png");
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+}
+

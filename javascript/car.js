@@ -22,9 +22,6 @@ class Car {
                 case 'ArrowRight': 
                 car.x += this.moveBy;
                 break;
-                case 'ArrowUp': 
-                car.y += this.moveBy;
-                break;
 
             }
         })

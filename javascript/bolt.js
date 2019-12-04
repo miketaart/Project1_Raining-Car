@@ -1,23 +1,19 @@
 class Bolt {
     constructor(){
         this.x = Math.round(Math.random() * (window.innerWidth - 40));
-        this.y = 0;
+        this.y = -20;
         this.width = 40; // set in .bolt css
-        this.height = 90;
+        this.height = 85;
         this.$bolt = null;
         this.animate();
-
-    }
-    
-    initiate(){ // starting position???
-
+        //this.velocity = Math.floor(Math.random() * (20 - 10) ) + 10; //(Math.random() * 10)
     }
 
     animate() {
         let bolt = this;
         setInterval(()=> {
-            bolt.y += 25
-        }, 300)
+            bolt.y += 2 //this.velocity 
+        }, 30)
     }
 
 

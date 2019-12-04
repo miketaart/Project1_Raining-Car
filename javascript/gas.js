@@ -6,14 +6,14 @@ class Gas {
         this.height = 90;
         this.$gas = null;
         this.animate();
-
+        this.velocity = (Math.random() * 10)
     }
 
     animate() {
         let gas = this;
         setInterval(()=> {
-            gas.y += 50
-        }, 300)
+            gas.y += this.velocity;
+        }, 30)
     }
 
 

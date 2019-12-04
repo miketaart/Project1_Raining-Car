@@ -7,7 +7,8 @@ class Game {
         this.bolts = [new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt()]
         this.gass = [new Gas()]
         this.start();
-
+      
+        this.score = new Score()
     }
 
 
@@ -65,18 +66,23 @@ class Game {
 
     
     checkCollissionBolt() {
+        debugger
+        document.getElementById("score").innerHTML = this.score.score
         var bolts = this.bolts
         var car = this.car
         for (let i = 0; i < bolts.length; i++) {
             if (collission(car, bolts[i])) {
                 bolts = bolts.splice(i, 1);
-                console.log("You were struck by lightning", window.innerHeight)
-                console.log("car height", this.car.height)
-                console.log("BOLT height", this.bolts[0].y)
+               
+                console.log("You were struck by lightning")
+                this.score.score++
+                document
                 return true;
             }
         }
         return false
+
+
     }
     
     checkCollissionGas() {
@@ -85,6 +91,7 @@ class Game {
         for (let j = 0; j < gass.length; j++) {
             if (collission(car, gass[j])) {
                 gass = gass.splice(j, 1);
+                this.score += 1;
                 console.log("YES!")
                 return true;
             }
@@ -102,10 +109,6 @@ function collission(element1, element2) {
         (element1.y > (element2.y + element2.height)) ||
         ((element1.x + element1.width) < element2.x) ||
         (element1.x > (element2.x + element2.width))
-        //((height - element1.height) < (element2.y)) &&
-        //(element1.y > (element2.y + element2.height)) ||
-        // ((element1.x + element1.width) < element2.x) ||
-        // (element1.x < (element2.x + element2.width))
     )
 }
 

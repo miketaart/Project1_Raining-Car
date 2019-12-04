@@ -1,7 +1,7 @@
 class Bolt {
     constructor(){
         this.x = Math.round(Math.random() * (window.innerWidth - 40));
-        this.y = -20;
+        this.y = window.innerHeight + 100;
         this.width = 40; // set in .bolt css
         this.height = 85;
         this.$bolt = null;
@@ -12,8 +12,8 @@ class Bolt {
     animate() {
         let bolt = this;
         setInterval(()=> {
-            bolt.y += 2 //this.velocity 
-        }, 30)
+            bolt.y -= 25 //this.velocity 
+        }, 300)
     }
 
 
@@ -22,7 +22,7 @@ class Bolt {
         bolt.className = "bolt"; // static styling in .bolt
         this.$bolt = bolt;
         bolt.style.left = `${this.x}px`;
-        bolt.style.top = `${this.y}px`;
+        bolt.style.bottom = `${this.y}px`;
 
         document.getElementById('game').appendChild(bolt)
     }

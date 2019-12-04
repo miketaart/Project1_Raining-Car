@@ -1,7 +1,7 @@
 class Gas {
     constructor(){
         this.x = Math.round(Math.random() * (window.innerWidth - 40));
-        this.y = 0;
+        this.y = window.innerHeight + 100;
         this.width = 20;
         this.height = 90;
         this.$gas = null;
@@ -12,7 +12,7 @@ class Gas {
     animate() {
         let gas = this;
         setInterval(()=> {
-            gas.y += this.velocity;
+            gas.y -= this.velocity;
         }, 30)
     }
 
@@ -22,7 +22,7 @@ class Gas {
         gas.className = "gas"; // static styling in .Gas
         this.$gas = gas;
         gas.style.left = `${this.x}px`;
-        gas.style.top = `${this.y}px`;
+        gas.style.bottom = `${this.y}px`;
 
         document.getElementById('game').appendChild(gas)
     }

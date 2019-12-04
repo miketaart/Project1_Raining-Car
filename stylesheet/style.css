@@ -33,3 +33,12 @@ body, html {
     position: fixed;
 }
 
+.scoreboard {
+    position: fixed;
+    margin: 100px;
+    border: dashed 3px red;
+}
+
+
+
+canvas { background: #CFF09E; display: block; }

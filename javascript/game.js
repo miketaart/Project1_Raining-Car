@@ -102,9 +102,8 @@ class Game {
         for (let i = 0; i < bolts.length; i++) {
             if (collission(car, bolts[i])) {
                 bolts = bolts.splice(i, 1);
-                console.log("You were struck by lightning")
                 this.live.live--              
-                if(this.live.live === 0) {
+                if(this.live.live < 1) {
                     this.stopGame();
                 }
                 return true;
@@ -121,7 +120,7 @@ class Game {
             if (collission(car, rocks[k])) {
                 rocks = rocks.splice(k, 1);
                 this.live.live--              
-                if(this.live.live === 0) {
+                if(this.live.live < 1) {
                     this.stopGame();
                 }
                 return true;
@@ -139,7 +138,6 @@ class Game {
             if (collission(car, gass[j])) {
                 gass = gass.splice(j, 1);
                 this.score.score+=20;
-                console.log("YES!")
                 return true;
             }
         }

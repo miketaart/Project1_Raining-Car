@@ -6,7 +6,7 @@ class Bolt {
         this.height = 85;
         this.$bolt = null;
         this.animate();
-        //this.velocity = Math.floor(Math.random() * (20 - 10) ) + 10; //(Math.random() * 10)
+        //this.velocity = Math.floor(Math.random() * (40 - 10) ) + 10; //(Math.random() * 10)
     }
 
     animate() {

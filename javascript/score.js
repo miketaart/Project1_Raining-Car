@@ -11,3 +11,10 @@ class Score {
         }
     }
 }
+
+
+class Live {
+    constructor() {
+        this.live = 3;
+    }
+}

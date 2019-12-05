@@ -2,18 +2,18 @@ class Gas {
     constructor(){
         this.x = Math.round(Math.random() * (window.innerWidth - 40));
         this.y = window.innerHeight + 100;
-        this.width = 20;
-        this.height = 90;
+        this.width = 40;
+        this.height = -40;
         this.$gas = null;
         this.animate();
-        this.velocity = (Math.random() * 10)
+        //this.velocity = (Math.random() * 10)
     }
 
     animate() {
         let gas = this;
         setInterval(()=> {
-            gas.y -= this.velocity;
-        }, 30)
+            gas.y -= 25 //this.velocity;
+        }, 300)
     }
 
 

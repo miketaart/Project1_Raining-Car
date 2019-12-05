@@ -33,12 +33,33 @@ body, html {
     position: fixed;
 }
 
-.scoreboard {
+.scoreboard1 {
     position: fixed;
-    margin: 100px;
+    margin-top: 50px;
+    margin-left: 100px;
     border: dashed 3px red;
+}
+
+.scoreboard2 {
+    position: fixed;
+    margin-top: 50px;
+    margin-right: 100px;
+    border: dashed 3px green;
+}
+
+.gameOverAlert {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    border: solid 10px red; 
+    background-color: blue;
+    font-size: 72px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
 
-canvas { background: #CFF09E; display: block; }
+canvas { 
+    background: #CFF09E; display: block;
+    background-size: cover;
+}

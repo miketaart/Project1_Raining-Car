@@ -4,11 +4,14 @@ class Game {
         this.gamewidth = width;
         this.gameheight = height;
         this.interval = 0;
-        this.bolts = [new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt(), new Bolt()]
+        this.bolts = [new Bolt()]
         this.gass = [new Gas()]
+        //this.rocks = [new Rock()]
         this.start();
-      
-        this.score = new Score()
+        this.score = new Score();
+        this.live = new Live();
+        //this.gameOver = null;
+        this.gameOver = null;
     }
 
 
@@ -42,6 +45,10 @@ class Game {
         this.gass.push(gas);
     }
 
+    /*addRock(rock) {
+        this.rocks.push(rock);
+    }*/
+
     renderBolt() {
         for (let i = 0; i < this.bolts.length; i++) {
             this.bolts[i].render();
@@ -58,40 +65,54 @@ class Game {
         this.checkCollissionBolt();
         this.checkCollissionGas();
         document.getElementById("game").innerHTML = "";
-        this.car.render();
-        this.renderBolt();
-        this.renderGas();
+        if(this.car) this.car.render();
+        if(this.bolts) this.renderBolt();
+        if(this.gass) this.renderGas();
+        if(this.gameOver) this.gameOver.render();
         
     }
 
-    
+    stopGame() {
+        this.car = null;
+        this.bolts = [];
+        this.gass = [];
+        this.gameOver = new GameOver();
+        //this.rocks = [new Rock()]
+    }
+
+    // check if bolts collide with car
     checkCollissionBolt() {
-        debugger
-        document.getElementById("score").innerHTML = this.score.score
+        document.getElementById("live").innerHTML = this.live.live;
         var bolts = this.bolts
         var car = this.car
         for (let i = 0; i < bolts.length; i++) {
             if (collission(car, bolts[i])) {
                 bolts = bolts.splice(i, 1);
-               
                 console.log("You were struck by lightning")
-                this.score.score++
-                document
+                this.live.live--
+                if(this.live.live === 0) {
+                    this.stopGame();
+                }
                 return true;
             }
+
         }
+
+
         return false
 
 
     }
     
+    // check if car collides with bonus 
     checkCollissionGas() {
+        document.getElementById("score").innerHTML = this.score.score
         var gass = this.gass
         var car = this.car
         for (let j = 0; j < gass.length; j++) {
             if (collission(car, gass[j])) {
                 gass = gass.splice(j, 1);
-                this.score += 1;
+                this.score.score++;
                 console.log("YES!")
                 return true;
             }

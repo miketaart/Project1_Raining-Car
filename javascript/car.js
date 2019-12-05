@@ -8,7 +8,7 @@ class Car {
         this.height = 65;
         this.render();
         this.initiateControls();
-        this.damage = false;
+
     }
     
     initiateControls() {

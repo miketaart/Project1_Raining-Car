@@ -17,10 +17,19 @@ class Car {
          
             switch (event.key) {
                 case 'ArrowLeft': 
+                if (this.x < 10) {
+                    return
+                } else {
                 car.x -= this.moveBy;
+                }
                 break;
                 case 'ArrowRight': 
-                car.x += this.moveBy;
+                if (this.x > window.innerWidth-100) {
+                    return
+                }
+                else {
+                    car.x += this.moveBy;
+                }
                 break;
 
             }

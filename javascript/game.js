@@ -6,7 +6,7 @@ class Game {
         this.interval = 0;
         this.bolts = [new Bolt()]
         this.gass = [new Gas()]
-        //this.rocks = [new Rock()]
+        this.rocks = [new Rock()]
         this.start();
         this.score = new Score();
         this.live = new Live();
@@ -28,6 +28,10 @@ class Game {
             game.addGas(new Gas());
         }, 20000)
 
+        setInterval(() => {
+            game.addRock(new Rock());
+        }, 15000)
+
     }
 
 
@@ -44,9 +48,9 @@ class Game {
         this.gass.push(gas);
     }
 
-    /*addRock(rock) {
+    addRock(rock) {
         this.rocks.push(rock);
-    }*/
+    }
 
     renderBolt() {
         for (let i = 0; i < this.bolts.length; i++) {
@@ -60,13 +64,21 @@ class Game {
         }
     }
 
+    renderRock() {
+        for (let k = 0; k < this.rocks.length; k++) {
+            this.rocks[k].render();
+        }
+    }
+
     render() {
         this.checkCollissionBolt();
         this.checkCollissionGas();
+        this.checkCollissionRock();
         document.getElementById("game").innerHTML = "";
         if(this.car) this.car.render();
         if(this.bolts) this.renderBolt();
         if(this.gass) this.renderGas();
+        if(this.rocks) this.renderRock();
         if(this.gameOver) this.gameOver.render();
         
     }
@@ -75,6 +87,7 @@ class Game {
         this.car = 0;
         this.bolts = [];
         this.gass = [];
+        this.rocks = [];
         this.gameOver = new GameOver();
         //this.checkCollissionBolt() = false;
         //this.checkCollissionGas() =  false;
@@ -96,13 +109,25 @@ class Game {
                 }
                 return true;
             }
-
         }
-
-
         return false
+    }
 
-
+    checkCollissionRock() {
+        document.getElementById("live").innerHTML = this.live.live;
+        var rocks = this.rocks
+        var car = this.car
+        for (let k = 0; k < rocks.length; k++) {
+            if (collission(car, rocks[k])) {
+                rocks = rocks.splice(k, 1);
+                this.live.live--              
+                if(this.live.live === 0) {
+                    this.stopGame();
+                }
+                return true;
+            }
+        }
+        return false
     }
     
     // check if car collides with bonus 
@@ -113,13 +138,14 @@ class Game {
         for (let j = 0; j < gass.length; j++) {
             if (collission(car, gass[j])) {
                 gass = gass.splice(j, 1);
-                this.score.score++;
+                this.score.score+=20;
                 console.log("YES!")
                 return true;
             }
         }
         return false
     }
+
 
     
 }

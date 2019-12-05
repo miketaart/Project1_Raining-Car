@@ -1,5 +1,9 @@
 
 /*@import url("/stylesheet/_rain.css"); */
+* {
+    font-family: "Acme";
+}
+
 body, html {
     width: 100vw;
     height: 100vh;
@@ -33,30 +37,46 @@ body, html {
     position: fixed;
 }
 
+.rock {
+    background-image: url("/images/rock.png");
+    background-size: contain;
+    width: 94px;
+    height: 85px;
+    position: fixed;
+}
+
 .scoreboard1 {
     position: fixed;
-    margin-top: 50px;
-    margin-left: 100px;
-    border: dashed 3px red;
+    margin: 50px 250px;
+    border: solid 10px rgb(255, 187, 0);
+    padding: 15px;
+    border-radius: 100px;
+    background-color: rgba(127, 202, 245, 0.226);
+    font-size: 30px;
 }
 
 .scoreboard2 {
     position: fixed;
-    margin-top: 50px;
-    margin-right: 100px;
-    border: dashed 3px green;
+    margin: 50px 50px;
+    border: solid 10px rgb(255, 0, 0);
+    padding: 15px;
+    border-radius: 100px;
+    background-color: rgba(127, 202, 245, 0.226);
+    font-size: 30px;
 }
 
 .gameOverAlert {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50vw;
     height: 50vh;
-    border: solid 10px red; 
-    background-color: blue;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 255, 0.39);
     font-size: 72px;
-    font-family: Arial, Helvetica, sans-serif;
 }
-
 
 
 canvas { 

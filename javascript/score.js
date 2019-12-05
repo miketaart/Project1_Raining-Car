@@ -1,16 +1,22 @@
 class Score {
     constructor() {
         this.score = 0;
-        this.highScore = 0;
+        this.currentTime = 0;
+        this.intervalId = 0;
+        this.myScore(); 
     }
 
-    highestScore () {
-        var myScore = this.score;
-        if (myScore > this.highScore) {
-            this.highScore = score;
-        }
+   
+
+    myScore() {
+        var fixThis = this;
+        this.intervalId = setInterval(function(){
+        fixThis.score++;
+        }, 1000);
     }
+
 }
+  
 
 
 class Live {

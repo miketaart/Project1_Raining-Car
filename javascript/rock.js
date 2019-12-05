@@ -2,8 +2,8 @@ class Rock {
     constructor(){
         this.x = Math.round(Math.random() * (window.innerWidth - 40));
         this.y = window.innerHeight + 100;
-        this.width = 100; // set in .rock css
-        this.height = 100;
+        this.width = 94; // set in .rock css
+        this.height = 85;
         this.$rock = null;
         this.animate();
         this.velocity = Math.floor(Math.random() * (40 - 10) ) + 10; //(Math.random() * 10)
@@ -12,8 +12,8 @@ class Rock {
     animate() {
         let rock = this;
         setInterval(()=> {
-            rock.y -= this.velocity 
-        }, 300)
+            rock.y -= 3*this.velocity 
+        }, 175)
     }
 
 

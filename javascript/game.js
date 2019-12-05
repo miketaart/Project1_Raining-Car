@@ -10,7 +10,6 @@ class Game {
         this.start();
         this.score = new Score();
         this.live = new Live();
-        //this.gameOver = null;
         this.gameOver = null;
     }
 
@@ -73,10 +72,12 @@ class Game {
     }
 
     stopGame() {
-        this.car = null;
+        this.car = 0;
         this.bolts = [];
         this.gass = [];
         this.gameOver = new GameOver();
+        //this.checkCollissionBolt() = false;
+        //this.checkCollissionGas() =  false;
         //this.rocks = [new Rock()]
     }
 
@@ -89,7 +90,7 @@ class Game {
             if (collission(car, bolts[i])) {
                 bolts = bolts.splice(i, 1);
                 console.log("You were struck by lightning")
-                this.live.live--
+                this.live.live--              
                 if(this.live.live === 0) {
                     this.stopGame();
                 }

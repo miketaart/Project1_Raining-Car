@@ -1,9 +1,9 @@
 class Rock {
     constructor(){
-        this.x = Math.round(Math.random() * (window.innerWidth - 40));
+        this.x = Math.round(Math.random() * (window.innerWidth - 190));
         this.y = window.innerHeight + 100;
-        this.width = 94; // set in .rock css
-        this.height = 85;
+        this.width = 187; // set in .rock css
+        this.height =170;
         this.$rock = null;
         this.animate();
         this.velocity = Math.floor(Math.random() * (40 - 10) ) + 10; //(Math.random() * 10)

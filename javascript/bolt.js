@@ -6,14 +6,14 @@ class Bolt {
         this.height = 85;
         this.$bolt = null;
         this.animate();
-        //this.velocity = Math.floor(Math.random() * (40 - 10) ) + 10; //(Math.random() * 10)
+        this.velocity = Math.floor(Math.random() * (40 - 10) ) + 10; //(Math.random() * 10)
     }
 
     animate() {
         let bolt = this;
         setInterval(()=> {
-            bolt.y -= 25 //this.velocity 
-        }, 300)
+            bolt.y -= this.velocity 
+        }, 90)
     }
 
 

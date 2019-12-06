@@ -37,11 +37,19 @@ body, html {
     position: fixed;
 }
 
+.mechanic {
+    background-image: url("/images/mechanic.png");
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+}
+
 .rock {
     background-image: url("/images/rock.png");
     background-size: contain;
-    width: 94px;
-    height: 85px;
+    width: 187px;
+    height: 170px;
     position: fixed;
 }
 
@@ -79,7 +87,7 @@ body, html {
 }
 
 .playAgain {
-    
+
 }
 
 canvas { 

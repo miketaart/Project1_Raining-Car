@@ -3,12 +3,12 @@ class GameOver {
         this.score = score;
     }
     render() {
-        debugger
         let gameOverAlert = document.createElement("div");
         let playAgain = document.createElement("button");
         playAgain.innerHTML = "Play Again";
         gameOverAlert.className = "gameOverAlert";
-        playAgain.className = "playAgain"
+        playAgain.setAttribute("id", "playAgain");
+        //playAgain.className = "playAgain"
         this.$gameOverAlert = gameOverAlert;
         gameOverAlert.style.left = 50 + "vw";
         gameOverAlert.style.bottom = 50 + "vh";
@@ -17,7 +17,8 @@ class GameOver {
         document.getElementById('game').appendChild(gameOverAlert);
     
         document.getElementsByClassName('gameOverAlert')[0].appendChild(playAgain);
-        document.getElementsByClassName('playAgain')[0].addEventListener("click", this.refresher())
+        //document.getElementsByClassName('playAgain')[0].addEventListener("click", this.refresher())
+        document.getElementById('playAgain').addEventListener("click", this.refresher())
     }
 
     refresher() {

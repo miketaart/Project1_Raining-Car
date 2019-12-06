@@ -4,9 +4,10 @@ class Game {
         this.gamewidth = width;
         this.gameheight = height;
         this.interval = 0;
-        this.bolts = [new Bolt()]
-        this.gass = [new Gas()]
-        this.rocks = [new Rock()]
+        this.bolts = [new Bolt()];
+        this.gass = [new Gas()];
+        this.rocks = [new Rock()];
+        this.mechanics = [new Mechanic()];
         this.start();
         this.score = new Score();
         this.live = new Live();
@@ -18,15 +19,19 @@ class Game {
         let game = this;
         setInterval(() => {
             game.render();
-        }, 100)
+        }, 130)
 
         setInterval(() => {
             game.addBolt(new Bolt());
-        }, 2000)
+        }, 200)
 
         setInterval(() => {
             game.addGas(new Gas());
-        }, 20000)
+        }, 15000)
+
+        setInterval(() => {
+            game.addMechanic(new Mechanic());
+        }, 10000)
 
         setInterval(() => {
             game.addRock(new Rock());
@@ -48,6 +53,10 @@ class Game {
         this.gass.push(gas);
     }
 
+    addGas(mechanic) {
+        this.mechanics.push(mechanic);
+    }
+
     addRock(rock) {
         this.rocks.push(rock);
     }
@@ -64,6 +73,12 @@ class Game {
         }
     }
 
+    renderMechanic() {
+        for (let l = 0; l < this.mechanics.length; l++) {
+            this.mechanics[l].render();
+        }
+    }
+
     renderRock() {
         for (let k = 0; k < this.rocks.length; k++) {
             this.rocks[k].render();
@@ -73,11 +88,13 @@ class Game {
     render() {
         this.checkCollissionBolt();
         this.checkCollissionGas();
+        this.checkCollissionMechanic();
         this.checkCollissionRock();
         document.getElementById("game").innerHTML = "";
         if(this.car) this.car.render();
         if(this.bolts) this.renderBolt();
         if(this.gass) this.renderGas();
+        if(this.mechanics) this.renderMechanic();
         if(this.rocks) this.renderRock();
         if(this.gameOver) this.gameOver.render();
         
@@ -87,6 +104,7 @@ class Game {
         this.car = 0;
         this.bolts = [];
         this.gass = [];
+        this.mechanic = [];
         this.rocks = [];
         this.gameOver = new GameOver();
         console.log('game stopped')
@@ -139,6 +157,20 @@ class Game {
             if (collission(car, gass[j])) {
                 gass = gass.splice(j, 1);
                 this.score.score+=20;
+                return true;
+            }
+        }
+        return false
+    }
+
+    checkCollissionMechanic() {
+        document.getElementById("live").innerHTML = this.live.live
+        var mechanics = this.mechanics
+        var car = this.car
+        for (let l = 0; l < mechanics.length; l++) {
+            if (collission(car, mechanics[l])) {
+                mechanics = mechanics.splice(l, 1);
+                this.live.live+=3;
                 return true;
             }
         }

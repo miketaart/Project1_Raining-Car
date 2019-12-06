@@ -10,7 +10,7 @@ class Car {
         this.initiateControls();
 
     }
-    
+    // similar to Rover
     initiateControls() {
         let car = this;
         window.addEventListener('keydown', (event) => {

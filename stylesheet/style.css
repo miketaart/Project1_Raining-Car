@@ -78,9 +78,12 @@ body, html {
     font-size: 72px;
 }
 
-
+.playAgain {
+    
+}
 
 canvas { 
-    background: #CFF09E; display: block;
+    background: #ffefd5; display: block;
     background-size: cover;
 }
+

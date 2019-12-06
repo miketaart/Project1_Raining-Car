@@ -13,7 +13,7 @@ class Game {
         this.gameOver = null;
     }
 
-
+    // set intervals for different functions and classes to be created/ran.
     start() {
         let game = this;
         setInterval(() => {
@@ -89,6 +89,7 @@ class Game {
         this.gass = [];
         this.rocks = [];
         this.gameOver = new GameOver();
+        console.log('game stopped')
         //this.checkCollissionBolt() = false;
         //this.checkCollissionGas() =  false;
         //this.rocks = [new Rock()]

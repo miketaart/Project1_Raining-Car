@@ -5,19 +5,14 @@ class Mechanic {
         this.width = 40;
         this.height = -40;
         this.$mechanic = null;
-        this.animate();
+        this.startTime = new Date();
         //this.velocity = (Math.random() * 10)
     }
 
-    animate() {
-        let mechanic = this;
-        setInterval(()=> {
-            mechanic.y -= 50;
-        }, 300)
-    }
 
 
     render(){
+        this.y = window.innerHeight + 100 - ((new Date() - this.startTime)/300)*40;
         let mechanic = document.createElement("div");
         mechanic.className = "mechanic"; // static styling in .Mechanic
         this.$mechanic = mechanic;

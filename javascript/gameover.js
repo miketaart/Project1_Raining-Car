@@ -14,7 +14,7 @@ class GameOver {
         gameOverAlert.style.transform = "translate(-50%, 50%)";
         gameOverAlert.innerHTML = "GAME OVER";
         gameOverAlert.appendChild(playAgain);
-
+        
         document.getElementById('game').appendChild(gameOverAlert);
     }
 

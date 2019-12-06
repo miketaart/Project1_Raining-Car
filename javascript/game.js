@@ -120,7 +120,7 @@ class Game {
         for (let k = 0; k < rocks.length; k++) {
             if (collission(car, rocks[k])) {
                 rocks = rocks.splice(k, 1);
-                this.live.live--              
+                this.live.live = this.live.live -2;             
                 if(this.live.live < 1) {
                     this.stopGame();
                 }

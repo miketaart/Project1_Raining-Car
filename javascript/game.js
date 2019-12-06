@@ -37,6 +37,9 @@ class Game {
             game.addRock(new Rock());
         }, 15000)
 
+        document.addEventListener("keydown", (e)=> {
+            if(e.keyCode === 13 && this.gameOver) window.location = "/" 
+        })
     }
 
 
@@ -53,7 +56,7 @@ class Game {
         this.gass.push(gas);
     }
 
-    addGas(mechanic) {
+    addMechanic(mechanic) {
         this.mechanics.push(mechanic);
     }
 
@@ -86,18 +89,18 @@ class Game {
     }
 
     render() {
-        this.checkCollissionBolt();
-        this.checkCollissionGas();
-        this.checkCollissionMechanic();
-        this.checkCollissionRock();
+
         document.getElementById("game").innerHTML = "";
+        if(this.gameOver) this.gameOver.render();
         if(this.car) this.car.render();
         if(this.bolts) this.renderBolt();
         if(this.gass) this.renderGas();
         if(this.mechanics) this.renderMechanic();
         if(this.rocks) this.renderRock();
-        if(this.gameOver) this.gameOver.render();
-        
+        this.checkCollissionBolt();
+        this.checkCollissionGas();
+        this.checkCollissionMechanic();
+        this.checkCollissionRock();
     }
 
     stopGame() {

@@ -13,7 +13,7 @@ class Car {
     // similar to Rover
     initiateControls() {
         let car = this;
-        window.addEventListener('keydown', (event) => {
+        document.addEventListener('keydown', (event) => {
          
             switch (event.key) {
                 case 'ArrowLeft': 
